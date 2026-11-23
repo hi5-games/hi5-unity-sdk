@@ -355,7 +355,7 @@
   function groupState(cases, g) {
     var xs = cases.filter(function (c) { return c.group === g; });
     if (xs.some(function (c) { return c.status === 'fail'; })) return 'fail';
-    if (xs.every(function (c) { return c.status === 'pass'; })) return 'pass';
+    if (xs.every(function (c) { return settled(c) && c.status !== 'fail'; })) return 'pass';
     var cur1 = cases.filter(function (c) { return !settled(c); })[0];
     return cur1 && cur1.group === g ? 'run' : 'todo';
   }
@@ -377,7 +377,7 @@
 
   function renderReq() {
     var res = evaluate(), cases = buildCases(res), html = '';
-    var done = cases.filter(function (c) { return c.status === 'pass'; }).length;
+    var done = cases.filter(function (c) { return settled(c) && c.status !== 'fail'; }).length;
     var fails = cases.filter(function (c) { return c.status === 'fail'; });
     var pct = cases.length ? Math.round(done * 100 / cases.length) : 0;
     var firstOpen = -1;
