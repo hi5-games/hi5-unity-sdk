@@ -29,7 +29,7 @@ Screenshots need Node 22+ (built-in WebSocket); older Node runs everything else.
 |---|---|
 | SDK mandatory | SDK initializes · Unity attaches (`H5SdkBootstrapper` ran) · `GameReady()` exactly once, after loading reached 100% · no interstitial before `GameReady()` · an interstitial shows and closes · progress saved with `SaveData` · saves loaded before `GameReady()` · **saves survive a reload** (press *Reload game*) · no console errors/exceptions |
 | SDK optional | rewarded completes · rewarded closed early / no fill (then confirm no reward) · `GetLocale` · level events · banner |
-| Pause & audio | game is not silent · **silent while an ad is on screen** · **gameplay paused during the ad and resumed after it** (`Time.timeScale` reported by the SDK) · silent while the tab is hidden (*Hide tab*) · obeys platform mute (*Platform mute*) |
+| System events | game is not silent · **silent while an ad is on screen** · **gameplay paused during the ad and resumed after it** (`Time.timeScale` reported by the SDK) · silent while the tab is hidden (*Hide tab*) · obeys platform mute (*Platform mute*) |
 
 The pause checks need a build made with SDK 2.1.0-beta.5 or newer: with the `qa` adapter only, the SDK samples
 `Time.timeScale`, `AudioListener.pause/volume` 0.5 s after each pause/mute/ad signal and reports it. A game that pauses

@@ -6,49 +6,47 @@
   <title>H5 QA tool</title>
   <link rel="stylesheet" href="qa.css">
 </head>
-<body>
+<body class="cert">
   <header>
-    <div class="brand">H5 QA</div>
+    <div class="brand">Hi5 Games<span>QA</span></div>
     <div class="game"><span id="game-name">…</span><span id="game-meta" class="muted"></span></div>
-    <div class="meter" title="Game audio level (measured on the game's AudioContext)">
-      <span class="muted">Audio</span><div class="bar"><div id="meter-fill"></div></div><span id="meter-state" class="muted">no context</span>
+    <div class="meter manual-only" title="Game audio level (measured on the game's AudioContext)">
+      <div class="bar"><div id="meter-fill"></div></div><span id="meter-state" class="muted">no context</span>
     </div>
     <div class="actions">
-      <button id="btn-reload" title="Reload the game only; this tool keeps its results (used for the save persistence check)">Reload game</button>
-      <button id="btn-hide" title="Simulate the tab/window being hidden (portal pause + mute + visibilitychange)">Hide tab</button>
-      <button id="btn-mute" title="Platform asks the game to mute (like a portal's sound toggle)">Platform mute: off</button>
-      <button id="btn-export" class="primary">Export report</button>
+      <button id="btn-mode" title="Switch between the guided certification steps and the manual tools">Switch to manual testing</button>
+      <button id="btn-export" class="primary" title="Export report">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Export report
+      </button>
     </div>
   </header>
 
   <main>
     <section id="stage">
-      <div id="stage-bar">
-        <label>Screen
-          <select id="preset">
-            <option value="fit">Fit to panel</option>
-            <option value="1280x720">16:9 landscape (1280×720)</option>
-            <option value="720x1280">9:16 portrait (720×1280)</option>
-            <option value="800x800">1:1 (800×800)</option>
-            <option value="393x852">iPhone 16 portrait (393×852)</option>
-            <option value="852x393">iPhone 16 landscape (852×393)</option>
-            <option value="1024x768">Tablet landscape (1024×768)</option>
-          </select>
-        </label>
-        <button id="btn-resize" title="Cycles through sizes so you can watch UI/camera adapt to live resizes">Resize test</button>
-        <span id="stage-size" class="muted"></span>
+      <div id="frame-wrap">
+        <iframe id="game" src="about:blank" allow="autoplay; fullscreen; gamepad" title="Game"></iframe>
+        <div id="veil">Follow the steps in the side panel</div>
+        <div id="dock" class="manual-only">
+          <button id="btn-dockpause" class="ib" title="Pause / resume (platform pause signal)"><svg viewBox="0 0 24 24" class="ic fill"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+          <button id="btn-mute" class="ib" title="Platform mute: off (the platform asks the game to mute)"><svg viewBox="0 0 24 24" class="ic"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/><path class="slash" d="M3 3l18 18"/></svg></button>
+          <button id="btn-hide" class="ib" title="Hide tab (simulates the player leaving the tab: pause + mute)"><svg viewBox="0 0 24 24" class="ic"><path d="M3 3l18 18"/><path d="M10.6 6.1A9.7 9.7 0 0112 6c5 0 8.5 4.5 9.5 6a16 16 0 01-3 3.4M6.3 7.6A16 16 0 002.5 12C3.5 13.5 7 18 12 18a9.7 9.7 0 003.5-.7"/><path d="M9.9 10a3 3 0 004.1 4.1"/></svg></button>
+          <button id="btn-reload" class="ib" title="Reload the game (this tool keeps its results)"><svg viewBox="0 0 24 24" class="ic"><path d="M20 12a8 8 0 11-2.3-5.7"/><path d="M20 4v5h-5"/></svg></button>
+          <button id="btn-full" class="ib" title="Full screen"><svg viewBox="0 0 24 24" class="ic"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+        </div>
       </div>
-      <div id="frame-wrap"><iframe id="game" src="about:blank" allow="autoplay; fullscreen; gamepad" title="Game"></iframe></div>
     </section>
 
     <aside id="panel">
-      <nav id="tabs">
-        <button data-tab="req" class="on">Requirements</button>
-        <button data-tab="logs">Logs</button>
-        <button data-tab="ads">Ads</button>
-        <button data-tab="storage">Storage</button>
-        <button data-tab="platform">Platform</button>
-      </nav>
+      <div id="toolbar" class="manual-only">
+        <span class="muted">Select tool</span>
+        <select id="tool">
+          <option value="logs">Logs</option>
+          <option value="scale">Scaling test</option>
+          <option value="ads">Advertisement</option>
+          <option value="storage">Game Storage</option>
+          <option value="platform">Platform Settings</option>
+        </select>
+      </div>
 
       <div class="tab on" id="tab-req">
         <div id="summary"></div>
@@ -62,9 +60,24 @@
           <label><input type="checkbox" data-kind="storage" checked> Storage</label>
           <label><input type="checkbox" data-kind="console"> Console</label>
           <label><input type="checkbox" data-kind="error" checked> Errors</label>
-          <button id="btn-clear-logs" class="small">Clear</button>
+          <button id="btn-clear-logs" class="ib sm" title="Clear logs"><svg viewBox="0 0 24 24" class="ic"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></button>
         </div>
         <div id="log"></div>
+      </div>
+
+      <div class="tab" id="tab-scale">
+        <p class="muted">Pick a screen size. The game is shown at that size so you can check that nothing is cut off or overlapping.</p>
+        <select id="preset" hidden>
+          <option value="fit">Fit to screen</option>
+          <option value="1280x720">16:9 landscape (1280×720)</option>
+          <option value="720x1280">9:16 portrait (720×1280)</option>
+          <option value="800x800">1:1 square (800×800)</option>
+          <option value="393x852">iPhone 16 portrait (393×852)</option>
+          <option value="852x393">iPhone 16 landscape (852×393)</option>
+          <option value="1024x768">Tablet landscape (1024×768)</option>
+        </select>
+        <div id="scale-list"></div>
+        <div class="row" style="margin-top:12px"><button id="btn-resize" class="mini" title="Cycles through sizes so you can watch UI/camera adapt to live resizes">Resize test</button><span id="stage-size" class="muted"></span></div>
       </div>
 
       <div class="tab" id="tab-ads">
@@ -81,7 +94,7 @@
       </div>
 
       <div class="tab" id="tab-storage">
-        <div class="row"><button id="btn-st-refresh" class="small">Refresh</button><button id="btn-st-clear" class="small danger">Clear storage</button></div>
+        <div class="row"><button id="btn-st-refresh" class="ib sm" title="Refresh"><svg viewBox="0 0 24 24" class="ic"><path d="M20 12a8 8 0 11-2.3-5.7"/><path d="M20 4v5h-5"/></svg></button><button id="btn-st-clear" class="ib sm danger" title="Clear storage"><svg viewBox="0 0 24 24" class="ic"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></button></div>
         <p class="muted">Saves written by the game through H5SDK.SaveData (localStorage, prefix <code>h5qa:</code>). Edit, then reload the game to test loading.</p>
         <div id="storage"></div>
       </div>
@@ -93,12 +106,13 @@
         <label class="field">Player name <input id="set-playerName" value="QA Player"></label>
         <p class="muted">Locale and player name apply on the next game reload.</p>
         <div class="row">
-          <button id="btn-pause">Send platform pause</button>
-          <button id="btn-resume">Send platform resume</button>
+          <button id="btn-pause" class="mini">Send platform pause</button>
+          <button id="btn-resume" class="mini">Send platform resume</button>
         </div>
         <h4>Build</h4>
         <div id="build-files" class="muted"></div>
       </div>
+      <div id="panel-foot"><button id="btn-update" class="primary" title="Reload the game (results are kept)">Reload game</button></div>
     </aside>
   </main>
   <script src="qa.js"></script>
