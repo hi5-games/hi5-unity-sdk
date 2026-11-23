@@ -1,0 +1,11 @@
+{
+  "id": "qa",
+  "name": "H5 QA tool (local testing only)",
+  "internal": true,
+  "files": [
+    { "from": "runtime/h5-bridge.js", "to": "h5-bridge.js" },
+    { "from": "runtime/adapters/qa.js", "to": "h5-adapter.js" }
+  ],
+  "headScripts": ["h5-bridge.js", "h5-adapter.js"],
+  "requiredOutput": ["index.html", "h5-bridge.js", "h5-adapter.js"]
+}

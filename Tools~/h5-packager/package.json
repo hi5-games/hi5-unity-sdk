@@ -1,0 +1,9 @@
+{
+  "name": "h5-packager",
+  "version": "2.0.0",
+  "description": "Packages one neutral Unity WebGL build (H5Neutral template) into per-portal zips. Zero dependencies.",
+  "bin": { "h5-packager": "bin/h5-packager.js" },
+  "engines": { "node": ">=18" },
+  "license": "UNLICENSED",
+  "private": true
+}

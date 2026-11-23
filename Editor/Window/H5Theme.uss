@@ -1,0 +1,83 @@
+/* Colors follow Funtap: orange #F05323 and warm gray. */
+:root {
+    --brand: rgb(240, 83, 35);
+    --brand-soft: rgba(240, 83, 35, 0.18);
+    --panel: rgb(38, 38, 38);
+    --card: rgb(52, 52, 52);
+    --card-hover: rgb(62, 62, 62);
+    --divider: rgb(30, 30, 30);
+    --ok: rgb(51, 128, 77);
+    --warn: rgb(140, 115, 51);
+    --err: rgb(140, 64, 64);
+    --idle: rgb(72, 72, 72);
+    --text-dim: rgb(170, 170, 170);
+}
+.h5-root { flex-direction: row; flex-grow: 1; }
+.h5-sidebar { width: 170px; background-color: var(--panel); border-right-width: 1px; border-color: var(--divider); padding: 10px 8px; }
+.h5-title { -unity-font-style: bold; font-size: 14px; margin-bottom: 2px; }
+.h5-version { color: var(--text-dim); font-size: 10px; margin-bottom: 12px; }
+.h5-tabs { flex-grow: 1; }
+.h5-tab { height: 28px; -unity-text-align: middle-left; padding-left: 10px; margin: 1px 0; background-color: transparent; border-width: 0; border-radius: 4px; }
+.h5-tab:hover { background-color: var(--card-hover); }
+.h5-tab--selected { background-color: var(--brand-soft); border-left-width: 3px; border-color: var(--brand); -unity-font-style: bold; }
+.h5-accent { height: 32px; background-color: var(--brand); color: white; -unity-font-style: bold; border-width: 0; border-radius: 4px; }
+.h5-accent:hover { background-color: rgb(255, 118, 66); }
+.h5-content { flex-grow: 1; padding: 14px 16px; }
+.h5-h1 { font-size: 18px; -unity-font-style: bold; margin-bottom: 4px; }
+.h5-sub { color: var(--text-dim); margin-bottom: 12px; white-space: normal; }
+.h5-card { background-color: var(--card); border-radius: 6px; padding: 10px 12px; margin: 4px 0; }
+.h5-row { flex-direction: row; align-items: center; }
+.h5-grow { flex-grow: 1; }
+.h5-pill { padding: 1px 8px; border-radius: 8px; font-size: 10px; -unity-font-style: bold; color: white; }
+.h5-pill--ok { background-color: var(--ok); }
+.h5-pill--warn { background-color: var(--warn); }
+.h5-pill--err { background-color: var(--err); }
+.h5-pill--idle { background-color: var(--idle); }
+.h5-grid { flex-direction: row; flex-wrap: wrap; }
+.h5-pcard { width: 190px; margin: 4px; padding: 10px 12px; background-color: var(--card); border-radius: 6px; border-width: 2px; border-color: transparent; }
+.h5-pcard:hover { background-color: var(--card-hover); }
+.h5-pcard--selected { border-color: var(--brand); }
+.h5-pcard-name { -unity-font-style: bold; font-size: 13px; }
+.h5-pcard-tag { color: var(--text-dim); font-size: 10px; white-space: normal; margin: 2px 0 6px 0; }
+.h5-section { -unity-font-style: bold; margin-top: 12px; margin-bottom: 4px; }
+.h5-btn { height: 24px; border-radius: 4px; }
+
+/* ---- Home (overview) ---- */
+.h5-stats { flex-direction: row; margin-bottom: 4px; }
+.h5-stat { flex-grow: 1; flex-basis: 0; background-color: var(--card); border-radius: 6px; padding: 10px 8px; margin-right: 6px; align-items: center; }
+.h5-stat-value { font-size: 18px; -unity-font-style: bold; }
+.h5-stat-label { color: var(--text-dim); font-size: 10px; }
+.h5-stat--warn .h5-stat-value { color: rgb(230, 190, 90); }
+.h5-hero { flex-direction: row; align-items: center; background-color: var(--brand-soft); border-left-width: 3px; border-color: var(--brand); border-radius: 6px; padding: 14px 16px; margin: 8px 0; }
+.h5-hero:hover { background-color: rgba(240, 83, 35, 0.28); }
+.h5-hero-title { font-size: 14px; -unity-font-style: bold; }
+.h5-hero-sub { color: var(--text-dim); white-space: normal; margin-top: 2px; }
+.h5-tiles { flex-direction: row; flex-wrap: wrap; }
+.h5-tile { width: 190px; margin: 0 6px 6px 0; padding: 10px 12px; background-color: var(--card); border-radius: 6px; border-left-width: 3px; border-color: var(--brand); }
+.h5-tile:hover { background-color: var(--card-hover); }
+.h5-tile--disabled { opacity: 0.45; border-color: var(--idle); }
+.h5-tile-title { -unity-font-style: bold; }
+.h5-tile-sub { color: var(--text-dim); font-size: 10px; white-space: normal; }
+.h5-toolrow { flex-direction: row; align-items: center; padding: 8px 6px; border-bottom-width: 1px; border-color: var(--divider); }
+.h5-toolrow:hover { background-color: var(--card-hover); }
+.h5-toolrow-title { -unity-font-style: bold; width: 110px; }
+
+/* ---- Wizard stepper + compact Build Settings ---- */
+.h5-steps { flex-direction: row; margin: 6px 0 10px 0; }
+.h5-step { flex-grow: 1; flex-basis: 0; margin: 0 3px 0 0; padding: 7px 4px; background-color: var(--card); border-radius: 4px; border-width: 0; border-bottom-width: 3px; border-color: var(--idle); white-space: normal; }
+.h5-step:hover { background-color: var(--card-hover); }
+.h5-step--done { border-color: rgb(80, 190, 120); }
+.h5-step--current { border-color: var(--brand); background-color: var(--brand-soft); -unity-font-style: bold; }
+.h5-wizard-footer { flex-direction: row; justify-content: space-between; margin-top: 10px; }
+.h5-banner { border-radius: 4px; padding: 7px 10px; margin: 4px 0; flex-direction: row; align-items: center; }
+.h5-banner--ok { background-color: rgba(80, 190, 120, 0.22); }
+.h5-banner--warn { background-color: rgba(230, 190, 90, 0.22); }
+.h5-opt-grid { flex-direction: row; flex-wrap: wrap; }
+.h5-opt { width: 50%; flex-direction: row; align-items: center; padding: 2px 8px 2px 0; }
+.h5-opt-label { width: 46%; overflow: hidden; }
+.h5-opt-label--custom { color: rgb(230, 190, 90); }
+.h5-opt DropdownField, .h5-opt .unity-base-popup-field { flex-grow: 1; margin: 0; }
+.h5-build-cards { flex-direction: row; }
+.h5-build-card { flex-grow: 1; flex-basis: 0; margin-right: 6px; padding: 10px 12px; border-radius: 6px; background-color: var(--card); }
+.h5-build-card--release { border-left-width: 3px; border-color: rgb(80, 190, 120); }
+.h5-build-card--dev { border-left-width: 3px; border-color: var(--brand); }
