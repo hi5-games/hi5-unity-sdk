@@ -1,17 +1,18 @@
 {
   "name": "com.hi5games.h5platformsdk",
   "displayName": "H5 Platform SDK",
-  "version": "2.1.0-beta.5",
+  "version": "2.1.0",
   "unity": "6000.3",
-  "description": "Build one neutral Unity WebGL build and package it for H5 portals (Playgama, Xiaomi, ...). Runtime facade H5SDK, editor window with size-optimization tools, Node packager.",
+  "description": "Tools to prepare, optimize and test a Unity WebGL build for HTML5 game distribution: runtime SDK facade (ads, saves, lifecycle), build-size tools and a QA tool.",
   "documentationUrl": "https://github.com/hi5-games/hi5-unity-sdk",
   "changelogUrl": "https://github.com/hi5-games/hi5-unity-sdk/blob/main/CHANGELOG.md",
   "keywords": [
-    "h5",
     "webgl",
-    "playgama",
-    "xiaomi",
-    "ads"
+    "html5",
+    "h5",
+    "ads",
+    "build-size",
+    "qa"
   ],
   "author": {
     "name": "Hi5Games"

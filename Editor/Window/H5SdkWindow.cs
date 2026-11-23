@@ -72,6 +72,12 @@ namespace H5PlatformSDK.Editor.Window
             sidebar.AddToClassList("h5-sidebar");
             sidebar.Add(Label("H5 Platform SDK", "h5-title"));
             sidebar.Add(Label("v" + Version, "h5-version"));
+            if (H5UpdateCheck.UpdateAvailable)
+            {
+                sidebar.Add(Label("Update available: v" + H5UpdateCheck.Latest, "h5-version"));
+                var upd = new Button(H5UpdateCheck.Update) { text = "Update" };
+                sidebar.Add(upd);
+            }
 
             var tabs = new VisualElement();
             tabs.AddToClassList("h5-tabs");

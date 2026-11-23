@@ -7,7 +7,7 @@
 3. Paste the URL below and click **Add**:
 
    ```
-   https://github.com/hi5-games/hi5-unity-sdk.git#v2.1.0-beta.5
+   https://github.com/hi5-games/hi5-unity-sdk.git
    ```
 
    `#<tag>` pins a release. Use the tag we gave you, and keep it the same for the whole project.

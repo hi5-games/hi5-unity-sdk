@@ -26,7 +26,7 @@ namespace H5PlatformSDK.Editor
             EditorApplication.delayCall += WriteCliPathHint;
         }
 
-        private static PackageInfo Info
+        public static PackageInfo Info
         {
             get
             {

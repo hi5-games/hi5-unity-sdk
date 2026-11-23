@@ -2,6 +2,14 @@
 
 Changes that matter when you integrate the SDK and prepare your build.
 
+## 2.1.0
+
+First official release. Includes everything from the 2.1 betas, plus:
+
+- **QA tool.** Redesigned to follow a guided, step-by-step certification flow, with a manual mode for free testing. Includes mute-after-reload and pause/mute confirmation checks.
+- **Update check.** The Editor warns when a newer SDK release is available, and the SDK window offers an **Update** button.
+- **Install.** Add the package from `https://github.com/hi5-games/hi5-unity-sdk.git` (no tag) to always get the latest release.
+
 ## 2.1.0-beta.5
 
 - **Editor window redesign.** *Home* gives an overview (status, setup checks, quick actions). The **Optimize Wizard** walks through six steps, one at a time: Build & Analyze, Textures, Audio, Shaders & Fonts, Test (QA tool), Release build.

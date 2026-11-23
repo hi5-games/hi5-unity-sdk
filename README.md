@@ -17,10 +17,10 @@
 1. Open **Window > Package Manager**, click **+** and choose **Install package from git URL…**, then paste:
 
    ```
-   https://github.com/hi5-games/hi5-unity-sdk.git#v2.1.0-beta.5
+   https://github.com/hi5-games/hi5-unity-sdk.git
    ```
 
-   `#<tag>` pins a release. Wait for compilation to finish. The package installs its own dependencies.
+   This installs the latest release. If your installed version falls behind, the SDK warns in the Console and shows an **Update** button in **H5 Platform SDK > Open**. Wait for compilation to finish. The package installs its own dependencies.
 
 2. Open **H5 Platform SDK > Open**. On **Home**, make every item **OK**: WebGL is the active target, `H5SdkConfig` exists, a scene is enabled, and the `H5Neutral` WebGL template is installed (click **Install**).
 
