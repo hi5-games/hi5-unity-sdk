@@ -4,8 +4,8 @@
   "version": "2.1.0-beta.5",
   "unity": "6000.3",
   "description": "Build one neutral Unity WebGL build and package it for H5 portals (Playgama, Xiaomi, ...). Runtime facade H5SDK, editor window with size-optimization tools, Node packager.",
-  "documentationUrl": "https://github.com/tanvanmanh/h5platformsdk",
-  "changelogUrl": "https://github.com/tanvanmanh/h5platformsdk/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/hi5-games/hi5-unity-sdk",
+  "changelogUrl": "https://github.com/hi5-games/hi5-unity-sdk/blob/main/CHANGELOG.md",
   "keywords": [
     "h5",
     "webgl",
