@@ -6,7 +6,7 @@
 
 **Build your Unity WebGL game once. We take it to every H5 portal.**
 
-![Release](https://img.shields.io/github/v/tag/hi5-games/hi5-unity-sdk?label=release)
+![Release](https://img.shields.io/github/v/tag/Hi5-Games-Studio/hi5-unity-sdk?label=release)
 ![Unity](https://img.shields.io/badge/Unity-6000.3%2B-black)
 ![Node](https://img.shields.io/badge/Node.js-18%2B-339933)
 
@@ -17,7 +17,7 @@
 1. Open **Window > Package Manager**, click **+** and choose **Install package from git URL…**, then paste:
 
    ```
-   https://github.com/hi5-games/hi5-unity-sdk.git
+   https://github.com/Hi5-Games-Studio/hi5-unity-sdk.git
    ```
 
    This installs the latest release. If your installed version falls behind, the SDK warns in the Console and shows an **Update** button in **H5 Platform SDK > Open**. Wait for compilation to finish. The package installs its own dependencies.

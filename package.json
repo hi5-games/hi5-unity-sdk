@@ -1,11 +1,11 @@
 {
   "name": "com.hi5games.h5platformsdk",
   "displayName": "H5 Platform SDK",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "unity": "6000.3",
   "description": "Tools to prepare, optimize and test a Unity WebGL build for HTML5 game distribution: runtime SDK facade (ads, saves, lifecycle), build-size tools and a QA tool.",
-  "documentationUrl": "https://github.com/hi5-games/hi5-unity-sdk",
-  "changelogUrl": "https://github.com/hi5-games/hi5-unity-sdk/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/Hi5-Games-Studio/hi5-unity-sdk",
+  "changelogUrl": "https://github.com/Hi5-Games-Studio/hi5-unity-sdk/blob/main/CHANGELOG.md",
   "keywords": [
     "webgl",
     "html5",

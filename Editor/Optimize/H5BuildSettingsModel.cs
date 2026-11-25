@@ -41,14 +41,16 @@ namespace H5PlatformSDK.Editor.Optimize
                 () => PlayerSettings.GetIl2CppCodeGeneration(Web), v => PlayerSettings.SetIl2CppCodeGeneration(Web, v), Il2CppCodeGeneration.OptimizeSize),
             Enum("Exception support", "'None' removes exception handling code (smaller/faster). Use 'ExplicitlyThrownExceptionsOnly' if the game relies on catching exceptions.",
                 () => PlayerSettings.WebGL.exceptionSupport, v => PlayerSettings.WebGL.exceptionSupport = v, WebGLExceptionSupport.None),
+            Toggle("Decompression fallback", "'On' adds a JS decompressor so the build loads on hosts that do not send a Content-Encoding header (most portals). " +
+                "'Off' only if the portal serves the files with the right Content-Encoding (or requires fallback off): smaller loader and streamed .wasm.",
+                () => PlayerSettings.WebGL.decompressionFallback, v => PlayerSettings.WebGL.decompressionFallback = v, true),
         };
 
-        /// <summary>Requirements, not choices: a portal build must not be a development build, must load without server-side
-        /// Content-Encoding (decompression fallback) and must use the Release IL2CPP configuration.</summary>
+        /// <summary>Requirements, not choices: a portal build must not be a development build and must use the Release IL2CPP
+        /// configuration. Decompression fallback is a choice (see <see cref="Items"/>), kept as set in Player Settings.</summary>
         public static void ApplyReleaseInvariants()
         {
             EditorUserBuildSettings.development = false;
-            PlayerSettings.WebGL.decompressionFallback = true;
             PlayerSettings.SetIl2CppCompilerConfiguration(Web, Il2CppCompilerConfiguration.Release);
         }
 

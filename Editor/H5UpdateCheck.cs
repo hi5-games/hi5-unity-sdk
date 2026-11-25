@@ -13,8 +13,8 @@ namespace H5PlatformSDK.Editor
     [InitializeOnLoad]
     public static class H5UpdateCheck
     {
-        public const string InstallUrl = "https://github.com/hi5-games/hi5-unity-sdk.git";
-        const string ManifestUrl = "https://raw.githubusercontent.com/hi5-games/hi5-unity-sdk/main/package.json";
+        public const string InstallUrl = "https://github.com/Hi5-Games-Studio/hi5-unity-sdk.git";
+        const string ManifestUrl = "https://raw.githubusercontent.com/Hi5-Games-Studio/hi5-unity-sdk/main/package.json";
         const string PrefLatest = "H5SDK.UpdateCheck.Latest";
         const string PrefTime = "H5SDK.UpdateCheck.Time";
         const string SessionKey = "H5SDK.UpdateCheck.Done";

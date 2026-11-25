@@ -58,7 +58,7 @@ namespace H5PlatformSDK.Editor.Window
                 grid.Add(cell);
             }
             box.Add(grid);
-            box.Add(Label("Orange name = differs from recommended. Hover a name to see why it matters. The release build always uses: no development mode, JS decompression fallback on, IL2CPP Release configuration (portal requirements, not options).", "h5-sub"));
+            box.Add(Label("Orange name = differs from recommended. Hover a name to see why it matters. The release build always uses: no development mode, IL2CPP Release configuration (portal requirements, not options).", "h5-sub"));
             box.Add(BuildRuntimeCard());
             return box;
         }

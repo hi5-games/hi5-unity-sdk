@@ -7,7 +7,7 @@
 3. Paste the URL below and click **Add**:
 
    ```
-   https://github.com/hi5-games/hi5-unity-sdk.git
+   https://github.com/Hi5-Games-Studio/hi5-unity-sdk.git
    ```
 
    `#<tag>` pins a release. Use the tag we gave you, and keep it the same for the whole project.
@@ -68,8 +68,9 @@ The options on the last step are the ones that are a real trade-off:
 | Managed stripping level | Medium (`High` is smaller but can break reflection) |
 | IL2CPP code generation | OptimizeSize |
 | Exception support | None (use *ExplicitlyThrownExceptionsOnly* if your game catches exceptions) |
+| Decompression fallback | On (turn it off only if the host serves the build with the right `Content-Encoding` header or asks for it off) |
 
-Pick any value; the recommended one is a suggestion, not a rule. The release build always uses what a portal build needs: no development mode, the JS decompression fallback on (so it loads on hosts that do not send `Content-Encoding`), and the IL2CPP Release configuration.
+Pick any value; the recommended one is a suggestion, not a rule. The release build always uses what a portal build needs: no development mode and the IL2CPP Release configuration.
 
 The build is written to `Builds/None/WEBGL_release_<timestamp>/`. Unity may recompile first (the SDK removes legacy platform defines and installs the `H5Neutral` template); run the build again when it finishes. Packaging for portals is done by Hi5 Games.
 
